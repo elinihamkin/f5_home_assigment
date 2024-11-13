@@ -20,7 +20,7 @@ jobs:
       id: docker_test
       run: |
         docker compose up -d
-        docker cp home_assigment_f5-test_server-1:/result ./test_result/
+        docker cp f5_home_assigment-test_server-1:/result ./test_result/
         docker compose down
         
        
