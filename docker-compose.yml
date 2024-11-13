@@ -1,0 +1,18 @@
+services:
+  nginx_servers:
+    build:
+      context: ./nginx_servers
+      dockerfile: dockerfile
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+
+  test_server:
+    build:
+      context: ./test_server
+      dockerfile: dockerfile
+    volumes:
+      - ./test_server/result:/result
+    depends_on:
+      - nginx_servers
+    

@@ -1,0 +1,21 @@
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y nginx && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /usr/share/nginx/html
+RUN mkdir -p /usr/share/nginx/html_error
+RUN mkdir -p /etc/nginx/conf.d
+
+COPY ./html/ /usr/share/nginx/html/
+COPY ./html_error/ /usr/share/nginx/html_error/
+COPY ./conf/ /etc/nginx/conf.d/
+
+# EXPOSE 8081
+# EXPOSE 8082
+
+CMD ["nginx", "-g", "daemon off;"]
