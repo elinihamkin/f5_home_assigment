@@ -1,0 +1,31 @@
+name: Docker Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Create result directory
+      run: mkdir test_result
+
+    - name: Build and test with Docker Compose
+      id: docker_test
+      run: |
+        docker compose up -d
+        docker cp home_assigment_f5-test_server-1:/result ./test_result/
+        docker compose down
+        
+       
+    - name: get result file
+      uses: actions/upload-artifact@v4
+      with:
+        name: result_file
+        path: ./test_result
