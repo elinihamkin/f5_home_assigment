@@ -6,7 +6,7 @@ def test_servers():
     
     try:
         response1 = requests.get('http://nginx_servers:8081')
-        if response1.status_code != 400:
+        if response1.status_code != 200:
             print("Custom server test failed")
             return False
 
