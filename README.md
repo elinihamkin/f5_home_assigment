@@ -2,6 +2,8 @@ f5_home_assigment:
 
 My solution for the next home assignment.
 
+The result of the tast is in result_file in the artifacts.
+
 Functional requirements:
 1. Set up a docker-compose file for these two docker containers, and two two docker files that build:
 1.Build an image with Nginx, using a dockerfile, that starts from the Ubuntu image as the base image.
