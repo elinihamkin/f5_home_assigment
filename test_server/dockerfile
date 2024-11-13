@@ -1,3 +1,6 @@
+# configure image with python
+# test the 2 servers that run on nginx
+
 FROM python:latest
 
 RUN pip install requests

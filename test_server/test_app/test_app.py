@@ -1,6 +1,7 @@
 import requests
 import os
 
+# check if the serves response with the corect code
 def test_servers():
     
     try:
@@ -21,7 +22,7 @@ def test_servers():
         print(f"Test failed with error: {e}")
         return False
 
-
+#  creates a file with a name according to the test result
 def main():
     success = test_servers()
 

@@ -1,3 +1,6 @@
+# configure image of ubuntu with nginx.
+# nginx will run 2 servers
+
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -15,7 +18,7 @@ COPY ./html/ /usr/share/nginx/html/
 COPY ./html_error/ /usr/share/nginx/html_error/
 COPY ./conf/ /etc/nginx/conf.d/
 
-# EXPOSE 8081
-# EXPOSE 8082
+EXPOSE 8081
+EXPOSE 8082
 
 CMD ["nginx", "-g", "daemon off;"]
